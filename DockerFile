@@ -1,0 +1,14 @@
+# Use Nginx as the base (much smaller than Ubuntu + Java)
+FROM nginx:alpine
+
+# Set the directory where Nginx looks for website files
+WORKDIR /usr/share/nginx/html
+
+# COPY all your project files (html, css, js, images) into the container
+COPY . .
+
+# EXPOSE port 80 (the default for web traffic)
+EXPOSE 80
+
+# CMD to start the Nginx server
+CMD ["nginx", "-g", "daemon off;"]
